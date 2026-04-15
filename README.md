@@ -1,49 +1,63 @@
-# Primetrade AI Assignment
+Primetrade AI Assignment
 
-A scalable REST API with Role-Based Access Control and a simple React front-end dashboard.
+A REST API with Role-Based Access Control and a minimal React front-end dashboard.
 
-## Overview
+Project Structure
 
-### Backend Features
-- FastAPI & Python
-- PostgreSQL via Docker Local instance
-- Role-Based Access Control (Admin vs User)
-- JWT Authentication and Password Hashing
-- Scalable structured layout (`core`, `api`, `crud`, `db`, `schemas`)
+- backend/: Contains the FastAPI application.
+  - app/api/: Route controllers and endpoints.
+  - app/core/: Security and configuration settings.
+  - app/crud/: Database operations layer.
+  - app/db/: Models and database connection.
+  - app/schemas/: Pydantic validation models.
+- frontend/: Contains the React application created with Vite.
+  - src/components/: React UI components.
+  - src/api/: API clients mapped to the backend.
+  - src/index.css: Main styling file.
 
-### Frontend Features
-- React.js with Vite
-- Login, Register, and Dashboard routing
-- LocalStorage based token persistence
-- Task CRUD Interface
+Requirements
+- Python 3.9 or higher
+- Node.js 18 or higher
+- Docker and Docker Compose
 
-### Scalability Note
-This project architecture establishes a sound foundation for enterprise scale:
-- **Microservices Ready:** The backend is modularly decoupled from the frontend. We can easily extract entities (like Tasks) into their own decoupled service.
-- **Docker Environments:** Using docker-compose ensures the infrastructure remains perfectly mirrored across all environments.
-- **Caching & Load Balancing:** As traffic increases, the application is stateless because of JWTs. This makes adding a load balancer (like NGINX/HAProxy) seamless. In-memory data caching could naturally be added via Redis or Memcached within the `crud` layer without disturbing API logic. 
+Setup Instructions
 
-## Getting Started
+1. Database Configuration
+The project uses PostgreSQL instantiated via Docker.
+To start the database:
+> docker compose up -d
 
-### 1. Database (Docker)
-```bash
-docker compose up -d
-```
+2. Backend Setup
+Navigate to the backend directory:
+> cd backend
 
-### 2. Backend API
-```bash
-cd backend
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-View Interactive Postman alternative (Swagger API docs) at: `http://localhost:8000/docs`
+Create and activate a virtual environment:
+> python -m venv venv
+> .\venv\Scripts\activate
 
-### 3. Frontend App
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Navigate to: `http://localhost:5173`
+Install dependencies:
+> pip install -r requirements.txt
+
+The backend uses a .env file to manage configurations. A default .env has been generated for you with standard database credentials.
+
+Start the backend:
+> uvicorn app.main:app --reload
+
+The API will run at http://localhost:8000
+API Documentation is available at http://localhost:8000/docs
+
+3. Frontend Setup
+Navigate to the frontend directory:
+> cd frontend
+
+Install packages:
+> npm install
+
+The frontend uses a .env file to manage the API url. A default .env has been generated.
+
+Start the frontend:
+> npm run dev
+
+The site will run at http://localhost:5173
+
+Built for the Primetrade AI Assignment.
