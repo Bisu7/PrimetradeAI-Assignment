@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
-    DATABASE_URL: str = "postgresql://admin:adminpassword@localhost:5432/primetrade"
+    DATABASE_URL: str = "postgresql://admin:adminpassword@127.0.0.1:5433/primetrade"
     
     class Config:
         case_sensitive = True
