@@ -60,6 +60,15 @@ Start the frontend:
 
 The site will run at http://localhost:5173
 
+## API Documentation
+
+- Postman Collection:
+The Postman collection for testing all APIs is included in this repository.
+
+File: `Primetrade_Postman_Collection.json`
+
+You can import this file into Postman to test all endpoints easily.
+
 ## Scalability Note
 
 This application is designed with scalability in mind.
