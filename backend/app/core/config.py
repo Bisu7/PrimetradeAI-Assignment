@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
     DATABASE_URL: str = "postgresql://admin:adminpassword@127.0.0.1:5433/primetrade"
+    BACKEND_CORS_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173"
     
     class Config:
         case_sensitive = True
