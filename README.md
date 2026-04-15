@@ -60,4 +60,26 @@ Start the frontend:
 
 The site will run at http://localhost:5173
 
+## Scalability Note
+
+This application is designed with scalability in mind.
+
+1. Microservices Architecture:
+The system can be divided into independent services such as authentication, task management, and analytics.
+
+2. Caching (Redis):
+Frequently accessed data can be cached to reduce database load.
+
+3. Load Balancing:
+A load balancer can distribute traffic across multiple servers.
+
+4. Database Scaling:
+PostgreSQL can be scaled using indexing and read replicas.
+
+5. Containerization:
+Docker enables horizontal scaling.
+
+6. Asynchronous Processing:
+Background tasks can be handled using queues like Celery.
+
 Built for the Primetrade AI Assignment.
